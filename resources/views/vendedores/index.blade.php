@@ -1,48 +1,42 @@
 @extends('layouts.app')
 
-@section('title', 'Lista de Vendedores')
+@section('content')
+<div class="container mt-4">
+    <h2 class="mb-3">Lista de Vendedores</h2>
 
-@section('contenido')
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="h3">Vendedores</h1>
-        <a href="{{ route('vendedores.create') }}" class="btn btn-primary">Nuevo</a>
-    </div>
+    <a href="{{ route('vendedores.create') }}" class="btn btn-primary mb-3">Agregar Vendedor</a>
 
-    @if($vendedores->count())
-        <div class="table-responsive">
-            <table class="table table-striped align-middle">
-                <thead>
+    @if ($vendedores->count() > 0)
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($vendedores as $vendedor)
                     <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Cargo</th>
-                        <th>Teléfono</th>
-                        <th>Acciones</th>
+                        <td>{{ $vendedor->id }}</td>
+                        <td>{{ $vendedor->nombre }}</td>
+                        <td>{{ $vendedor->correo }}</td>
+                        <td>
+                            <a href="{{ route('vendedores.show', $vendedor->id) }}" class="btn btn-info btn-sm">Ver</a>
+                            <a href="{{ route('vendedores.edit', $vendedor->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                            <form action="{{ route('vendedores.destroy', $vendedor->id) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger btn-sm" onclick="return confirm('¿Eliminar este vendedor?')">Eliminar</button>
+                            </form>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach($vendedores as $vend)
-                        <tr>
-                            <td>{{ $vend->id }}</td>
-                            <td><a href="{{ route('vendedores.show', $vend) }}">{{ $vend->nombre }}</a></td>
-                            <td>{{ $vend->cargo }}</td>
-                            <td>{{ $vend->telefono }}</td>
-                            <td>
-                                <div class="d-flex gap-2">
-                                    <a href="{{ route('vendedores.edit', $vend) }}" class="btn btn-sm btn-outline-secondary">Editar</a>
-                                    <form action="{{ route('vendedores.destroy', $vend) }}" method="POST" onsubmit="return confirm('¿Eliminar este vendedor?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                @endforeach
+            </tbody>
+        </table>
     @else
-        <p class="text-muted">No hay vendedores registrados aún.</p>
+        <p>No hay vendedores registrados.</p>
     @endif
+</div>
 @endsection

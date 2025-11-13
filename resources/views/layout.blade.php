@@ -11,6 +11,7 @@
         <div class="container">
             <a class="navbar-brand" href="{{ route('productos.index') }}">Productos</a>
             <a class="navbar-brand" href="{{ route('vendedores.index') }}">Vendedores</a>
+            <a class="navbar-brand" href="{{ route('categorias.index') }}">Categorias</a>
         </div>
     </nav>
     <main class="container py-4">

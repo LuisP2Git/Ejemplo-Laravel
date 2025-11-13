@@ -28,6 +28,11 @@
                             Vendedores
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('categorias*') ? 'active' : '' }}" href="{{ route('categorias.index') }}">
+                            Categorias
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
