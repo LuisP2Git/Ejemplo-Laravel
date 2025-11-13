@@ -12,7 +12,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Correo</th>
+                    <th>Cargo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -21,7 +21,7 @@
                     <tr>
                         <td>{{ $vendedor->id }}</td>
                         <td>{{ $vendedor->nombre }}</td>
-                        <td>{{ $vendedor->correo }}</td>
+                        <td>{{ $vendedor->cargo }}</td>
                         <td>
                             <a href="{{ route('vendedores.show', $vendedor->id) }}" class="btn btn-info btn-sm">Ver</a>
                             <a href="{{ route('vendedores.edit', $vendedor->id) }}" class="btn btn-warning btn-sm">Editar</a>

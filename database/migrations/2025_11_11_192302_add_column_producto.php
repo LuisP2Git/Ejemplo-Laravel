@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('productos', function (Blueprint $table) {
             $table->foreignId('categoria_id')
             ->constrained()
-            ->restrictonDelete();
+            ->restrictOnDelete();
         });
     }
 

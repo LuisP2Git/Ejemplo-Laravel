@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('contenido')
+@section('content')
 <div class="card">
     <div class="card-header bg-info text-white">
         Detalles de la Categoría

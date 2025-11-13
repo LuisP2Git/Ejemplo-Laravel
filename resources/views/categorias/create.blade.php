@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('contenido')
+@section('content')
 <div class="card">
     <div class="card-header bg-primary text-white">Nueva Categoría</div>
     <div class="card-body">

@@ -2,7 +2,7 @@
 
 @section('title', 'Detalle del Vendedor')
 
-@section('contenido')
+@section('content')
 <div class="card">
     <div class="card-header bg-info text-white">Detalles del Vendedor</div>
     <div class="card-body">

@@ -2,7 +2,7 @@
 
 @section('title', 'Registrar Vendedor')
 
-@section('contenido')
+@section('content')
     <h1 class="mb-4 text-center">Registrar Nuevo Vendedor</h1>
 
     <div class="card shadow-sm p-4">
